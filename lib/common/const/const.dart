@@ -19,4 +19,16 @@ class AppSizedBox {
   static const forgotHeight = SizedBox(
     height: 30,
   );
+  static const kappWidth = SizedBox(
+    width: 40,
+  );
+  static const kHeight30 = SizedBox(
+    height: 30,
+  );
+  static const kWidth10 = SizedBox(
+    width: 10,
+  );
+  static const kHeight5 = SizedBox(
+    height: 5,
+  );
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_ui/common/colors/colors.dart';
 import 'package:food_delivery_ui/common/const/const.dart';
+import 'package:food_delivery_ui/view/screens/home_screen/home_screen.dart';
 import 'package:food_delivery_ui/widgets/button.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -105,9 +106,9 @@ class LoginScreen extends StatelessWidget {
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.15,
                       ),
-                      Center(
+                      const Center(
                         child:
-                            ButtonWidget(screen: LoginScreen(), text: "Login"),
+                            ButtonWidget(screen: HomeScreen(), text: "Login"),
                       )
                     ],
                   ),

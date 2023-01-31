@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:food_delivery_ui/view/screens/history/history.dart';
 import 'package:food_delivery_ui/view/screens/splash_screen/splash_screen.dart';
 
 void main() {
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         fontFamily: "Montserrat",
       ),
-      home: const SplashScreen(),
+      home: const HistoryScreen(),
     );
   }
 }
