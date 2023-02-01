@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery_ui/common/colors/colors.dart';
 import 'package:food_delivery_ui/common/const/const.dart';
 import 'package:food_delivery_ui/controller/profile_controller/profile_controller.dart';
+import 'package:food_delivery_ui/view/screens/payment_screen/payment_screen.dart';
 import 'package:provider/provider.dart';
 
-class PaymentScreen extends StatelessWidget {
-  const PaymentScreen({super.key});
+class DeliveryScreen extends StatelessWidget {
+  const DeliveryScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +31,7 @@ class PaymentScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                "Payment",
+                "Delivery",
                 style: TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.w600,
@@ -42,17 +43,31 @@ class PaymentScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
                   Text(
-                    "Payment method",
+                    "Address details",
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
                       letterSpacing: -0.8,
                     ),
                   ),
+                  Text(
+                    "change",
+                    style: TextStyle(
+                      fontSize: 15,
+                      letterSpacing: -0.8,
+                      color: Color.fromRGBO(
+                        146,
+                        85,
+                        253,
+                        1.000,
+                      ),
+                    ),
+                  ),
                 ],
               ),
               AppSizedBox.kHeight10,
               Card(
+                margin: EdgeInsets.zero,
                 color: AppColors.kWhite,
                 surfaceTintColor: AppColors.kWhite,
                 elevation: 100,
@@ -60,63 +75,34 @@ class PaymentScreen extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),
-                child: ListView.separated(
-                  padding: const EdgeInsets.all(10),
-                  shrinkWrap: true,
-                  physics: const ScrollPhysics(),
-                  itemBuilder: (context, index) {
-                    return Consumer<ProfileContrller>(
-                      builder: (context, value, child) {
-                        if (index != 2) {
-                          return ListTile(
-                            contentPadding: EdgeInsets.zero,
-                            horizontalTitleGap: 10,
-                            leading: Radio(
-                              value: "payment",
-                              groupValue: value.type,
-                              onChanged: (radio) {
-                                value.radioCheck(radio);
-                              },
-                            ),
-                            title: Row(
-                              children: [
-                                Container(
-                                  height: 50,
-                                  width: 50,
-                                  decoration: BoxDecoration(
-                                    color: colorContainer[index],
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  child: Icon(
-                                    iconContainer[index],
-                                    color: AppColors.kBlack,
-                                  ),
-                                ),
-                                AppSizedBox.kWidth10,
-                                Text(
-                                  payment[index],
-                                ),
-                              ],
-                            ),
-                          );
-                        } else {
-                          return const SizedBox(
-                            height: 60,
-                          );
-                        }
-                      },
-                    );
-                  },
-                  itemCount: 3,
-                  separatorBuilder: (BuildContext context, int index) {
-                    return const Divider(
-                      endIndent: 30,
-                      indent: 80,
-                    );
-                  },
+                child: Padding(
+                  padding: const EdgeInsets.all(40),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      Text(
+                        "Marvis Kparobo",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      Divider(),
+                      Text(
+                        "Km 5 refinery road opposite re\npublic road,effurun,delta state",
+                        style: TextStyle(color: AppColors.kGrey),
+                      ),
+                      Divider(),
+                      Text(
+                        "+23348-8899765",
+                        style: TextStyle(color: AppColors.kGrey),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-              AppSizedBox.kHeight10,
+              AppSizedBox.kHeight30,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
@@ -132,6 +118,7 @@ class PaymentScreen extends StatelessWidget {
               ),
               AppSizedBox.kHeight,
               Card(
+                margin: EdgeInsets.zero,
                 color: AppColors.kWhite,
                 surfaceTintColor: AppColors.kWhite,
                 elevation: 100,
@@ -140,7 +127,7 @@ class PaymentScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: ListView.separated(
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(20),
                   shrinkWrap: true,
                   physics: const ScrollPhysics(),
                   itemBuilder: (context, index) {
@@ -174,7 +161,7 @@ class PaymentScreen extends StatelessWidget {
                       },
                     );
                   },
-                  itemCount: 3,
+                  itemCount: 2,
                   separatorBuilder: (BuildContext context, int index) {
                     return const Divider(
                       endIndent: 30,
@@ -214,87 +201,10 @@ class PaymentScreen extends StatelessWidget {
                   height: MediaQuery.of(context).size.height * 0.075,
                   child: ElevatedButton(
                     onPressed: () {
-                      showDialog(
-                        context: context,
-                        builder: (context) {
-                          return AlertDialog(
-                            backgroundColor: AppColors.kWhite,
-                            title: const Text(
-                              "Please note",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  letterSpacing: -0.8,
-                                  fontSize: 15),
-                            ),
-                            content: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: const [
-                                Text(
-                                  "Delivery to Mainland",
-                                  style: TextStyle(
-                                      letterSpacing: -0.8,
-                                      fontSize: 15,
-                                      color: AppColors.kGrey),
-                                ),
-                                Text(
-                                  "N1000-N2000",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w600,
-                                      letterSpacing: -0.8,
-                                      fontSize: 15),
-                                ),
-                                AppSizedBox.kHeight30,
-                                Divider(),
-                                Text(
-                                  "Delivery to island",
-                                  style: TextStyle(
-                                      letterSpacing: -0.8,
-                                      fontSize: 15,
-                                      color: AppColors.kGrey),
-                                ),
-                                Text(
-                                  "N2000-N3000",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w600,
-                                      letterSpacing: -0.8,
-                                      fontSize: 15),
-                                ),
-                                AppSizedBox.kHeight10,
-                              ],
-                            ),
-                            actions: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  TextButton(
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                    },
-                                    child: const Text('Cancel'),
-                                  ),
-                                  SizedBox(
-                                    width: 100,
-                                    height: 50,
-                                    child: ElevatedButton(
-                                      onPressed: () {},
-                                      style: ElevatedButton.styleFrom(
-                                        backgroundColor: const Color.fromRGBO(
-                                          146,
-                                          85,
-                                          253,
-                                          1.000,
-                                        ),
-                                        foregroundColor: AppColors.kWhite,
-                                      ),
-                                      child: const Text('Proceed'),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          );
-                        },
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const PaymentScreen(),
+                        ),
                       );
                     },
                     style: ButtonStyle(
