@@ -45,8 +45,9 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           scaffoldBackgroundColor: const Color.fromRGBO(237, 237, 237, 1.000),
-          appBarTheme: const AppBarTheme(
-            color: Color.fromRGBO(237, 237, 237, 1.000),
+          appBarTheme: AppBarTheme(
+            surfaceTintColor: Color.fromRGBO(237, 237, 237, 1.000),
+            backgroundColor: Color.fromRGBO(237, 237, 237, 1.000),
           ),
           useMaterial3: true,
           fontFamily: "Montserrat",

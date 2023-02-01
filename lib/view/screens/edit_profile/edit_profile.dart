@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:food_delivery_ui/common/colors/colors.dart';
 import 'package:food_delivery_ui/common/const/const.dart';
 import 'package:food_delivery_ui/view/screens/profile_screen/profile_screen.dart';
@@ -23,7 +21,7 @@ class EditProfile extends StatelessWidget {
       ),
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: EdgeInsets.all(30),
+          padding: const EdgeInsets.all(30),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

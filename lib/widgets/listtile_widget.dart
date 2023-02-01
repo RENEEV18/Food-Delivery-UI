@@ -18,15 +18,15 @@ class ProfileCardWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
       ),
       child: ListTile(
-        contentPadding: EdgeInsets.only(left: 20, right: 20),
+        contentPadding: const EdgeInsets.only(left: 20, right: 20),
         title: Text(
           text,
-          style: TextStyle(
+          style: const TextStyle(
             fontWeight: FontWeight.w600,
             letterSpacing: -0.8,
           ),
         ),
-        trailing: Icon(Icons.arrow_forward_ios_outlined),
+        trailing: const Icon(Icons.arrow_forward_ios_outlined),
       ),
     );
   }

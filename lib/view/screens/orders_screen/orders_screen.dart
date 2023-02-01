@@ -12,12 +12,14 @@ class OrdersScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
           icon: const Icon(Icons.arrow_back_ios),
         ),
         centerTitle: true,
         title: const Text(
-          "History",
+          "Orders",
           style: TextStyle(fontWeight: FontWeight.w600),
         ),
       ),
@@ -28,7 +30,7 @@ class OrdersScreen extends StatelessWidget {
             children: [
               const Spacer(),
               Icon(
-                Icons.calendar_today_outlined,
+                Icons.shopping_cart_outlined,
                 size: 150,
                 color: Colors.black.withOpacity(0.7),
               ),

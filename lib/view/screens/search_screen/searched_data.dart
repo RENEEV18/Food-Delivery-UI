@@ -24,14 +24,14 @@ class SearchScreenData extends StatelessWidget {
       body: SafeArea(
         child: Container(
           height: double.infinity,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               color: AppColors.kWhite,
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20), topRight: Radius.circular(20))),
           child: Column(
             children: [
               AppSizedBox.kHeight10,
-              Text(
+              const Text(
                 "Found 6 results",
                 style: TextStyle(
                   fontSize: 30,

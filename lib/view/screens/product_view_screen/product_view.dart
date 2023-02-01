@@ -1,7 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:food_delivery_ui/common/colors/colors.dart';
 import 'package:food_delivery_ui/common/const/const.dart';
 import 'package:food_delivery_ui/controller/product_view_controller/product_view_controller.dart';

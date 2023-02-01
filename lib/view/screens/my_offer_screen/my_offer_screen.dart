@@ -1,17 +1,18 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery_ui/common/colors/colors.dart';
 import 'package:food_delivery_ui/common/const/const.dart';
 
-class SearchScreen extends StatelessWidget {
-  const SearchScreen({super.key});
+class OfferScreen extends StatelessWidget {
+  const OfferScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
           icon: const Icon(Icons.arrow_back_ios),
         ),
       ),
@@ -20,14 +21,20 @@ class SearchScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
-                'My offers',
-                style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.w600,
-                  letterSpacing: -0.8,
-                ),
+              Row(
+                children: const [
+                  AppSizedBox.kWidth20,
+                  Text(
+                    'My offers',
+                    style: TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: -0.8,
+                    ),
+                  ),
+                ],
               ),
+              const Spacer(),
               const Text(
                 'ohh snap! No offers yet',
                 style: TextStyle(
@@ -47,6 +54,7 @@ class SearchScreen extends StatelessWidget {
                   color: AppColors.kGrey,
                 ),
               ),
+              const Spacer()
             ],
           ),
         ),

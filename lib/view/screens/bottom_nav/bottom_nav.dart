@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:food_delivery_ui/common/colors/colors.dart';
 import 'package:food_delivery_ui/controller/bottom_nav_controller/bottom_nav_controller.dart';
+import 'package:food_delivery_ui/view/screens/my_offer_screen/my_offer_screen.dart';
+import 'package:food_delivery_ui/view/screens/orders_screen/orders_screen.dart';
 import 'package:provider/provider.dart';
 
 class BottomNav extends StatelessWidget {
@@ -44,7 +46,11 @@ class BottomNav extends StatelessWidget {
                           'Profile'),
                     ),
                     ListTile(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const OrdersScreen(),
+                        ));
+                      },
                       leading: const Icon(
                         Icons.shopping_cart_checkout,
                       ),
@@ -55,7 +61,11 @@ class BottomNav extends StatelessWidget {
                           'Orders'),
                     ),
                     ListTile(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const OfferScreen(),
+                        ));
+                      },
                       leading: const Icon(Icons.sell_outlined),
                       title: const Text(
                           style: TextStyle(
@@ -86,7 +96,7 @@ class BottomNav extends StatelessWidget {
                       children: [
                         TextButton(
                           onPressed: () {},
-                          child: Text(
+                          child: const Text(
                             "Sign-out",
                             style: TextStyle(
                               color: AppColors.kBlack,
@@ -95,7 +105,7 @@ class BottomNav extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Icon(Icons.arrow_forward),
+                        const Icon(Icons.arrow_forward),
                       ],
                     ),
                   ],
