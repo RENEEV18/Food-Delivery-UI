@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery_ui/common/colors/colors.dart';
 import 'package:food_delivery_ui/common/const/const.dart';
 import 'package:food_delivery_ui/view/screens/product_view_screen/product_view.dart';
+import 'package:food_delivery_ui/view/screens/search_screen/searched_data.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -45,8 +46,17 @@ class HomeScreen extends StatelessWidget {
                     child: Material(
                       borderRadius: BorderRadius.circular(30),
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 0),
                         child: TextFormField(
+                          onEditingComplete: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return const SearchScreenData();
+                                },
+                              ),
+                            );
+                          },
                           decoration: InputDecoration(
                             hintText: "Search",
                             hintStyle: const TextStyle(
@@ -124,14 +134,30 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                   AppSizedBox.kHeight,
+                  Row(
+                    children: const [
+                      Spacer(),
+                      Text(
+                        'See more',
+                        style: TextStyle(
+                          color: Color.fromRGBO(
+                            146,
+                            85,
+                            253,
+                            1.000,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                   SizedBox(
-                    height: 300,
+                    height: 400,
                     child: ListView.separated(
                       padding: const EdgeInsets.all(10),
                       scrollDirection: Axis.horizontal,
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
-                        return InkWell(
+                        return GestureDetector(
                           onTap: () {
                             Navigator.of(context).push(
                               MaterialPageRoute(
@@ -142,57 +168,69 @@ class HomeScreen extends StatelessWidget {
                             );
                           },
                           child: Stack(
+                            alignment: Alignment.topCenter,
                             children: [
-                              SizedBox(
-                                height: 300,
-                                width: 220,
-                                child: Card(
-                                  color: AppColors.kWhite,
-                                  surfaceTintColor: AppColors.kWhite,
-                                  elevation: 100,
-                                  shadowColor: AppColors.kWhite,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(40),
-                                  ),
-                                ),
-                              ),
-                              CircleAvatar(
-                                backgroundImage: AssetImage(
-                                  images[index],
-                                ),
-                                radius: 80,
-                              ),
-                              const SizedBox(
-                                height: 200,
-                              ),
-                              Positioned(
-                                top: 180,
-                                left: 60,
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
                                 child: Column(
                                   children: [
-                                    Text(
-                                      items[index],
-                                      style: const TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w600,
-                                        letterSpacing: -0.8,
-                                      ),
-                                      textAlign: TextAlign.center,
+                                    const SizedBox(
+                                      height: 40,
                                     ),
-                                    AppSizedBox.kHeight5,
-                                    Text(
-                                      price[index],
-                                      style: const TextStyle(
-                                        color: Color.fromRGBO(
-                                          146,
-                                          85,
-                                          253,
-                                          1.000,
+                                    SizedBox(
+                                      height: 280,
+                                      width: 230,
+                                      child: Card(
+                                        color: AppColors.kWhite,
+                                        surfaceTintColor: AppColors.kWhite,
+                                        elevation: 10,
+                                        shadowColor: AppColors.kWhite,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(40),
                                         ),
-                                        fontWeight: FontWeight.w600,
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
+                                          children: [
+                                            Text(
+                                              items[index],
+                                              style: const TextStyle(
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.w600,
+                                                letterSpacing: -0.8,
+                                              ),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                            AppSizedBox.kHeight5,
+                                            Text(
+                                              price[index],
+                                              style: const TextStyle(
+                                                color: Color.fromRGBO(
+                                                  146,
+                                                  85,
+                                                  253,
+                                                  1.000,
+                                                ),
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                            ),
+                                            AppSizedBox.kHeight40,
+                                          ],
+                                        ),
                                       ),
-                                    )
+                                    ),
                                   ],
+                                ),
+                              ),
+                              Material(
+                                shape: const CircleBorder(),
+                                elevation: 50,
+                                child: CircleAvatar(
+                                  backgroundImage: AssetImage(
+                                    images[index],
+                                  ),
+                                  radius: 80,
                                 ),
                               ),
                             ],

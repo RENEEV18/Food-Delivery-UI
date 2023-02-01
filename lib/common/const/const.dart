@@ -37,6 +37,9 @@ class AppSizedBox {
   static const kWidth20 = SizedBox(
     width: 20,
   );
+  static const kHeight40 = SizedBox(
+    height: 40,
+  );
 }
 
 List<String> items = [
