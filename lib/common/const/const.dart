@@ -74,3 +74,7 @@ List<IconData> iconContainer = [
   Icons.account_balance,
   Icons.paypal,
 ];
+List<String> delivery = [
+  "Door delivery",
+  "Pick up",
+];

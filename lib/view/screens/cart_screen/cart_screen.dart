@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery_ui/common/colors/colors.dart';
 import 'package:food_delivery_ui/common/const/const.dart';
 import 'package:food_delivery_ui/view/screens/orders_screen/orders_screen.dart';
+import 'package:food_delivery_ui/view/screens/payment_screen/payment_screen.dart';
 import 'package:food_delivery_ui/widgets/button.dart';
 
 class CartScreen extends StatelessWidget {
@@ -159,7 +160,7 @@ class CartScreen extends StatelessWidget {
             const Align(
                 alignment: Alignment.bottomCenter,
                 child: ButtonWidget(
-                    screen: OrdersScreen(), text: "Complete order")),
+                    screen: PaymentScreen(), text: "Complete order")),
           ],
         ),
       ),
