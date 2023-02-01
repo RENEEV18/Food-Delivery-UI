@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:food_delivery_ui/view/screens/history/history.dart';
+import 'package:food_delivery_ui/view/screens/history_screen/history.dart';
 import 'package:food_delivery_ui/view/screens/splash_screen/splash_screen.dart';
 
 void main() {
