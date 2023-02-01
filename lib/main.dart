@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:food_delivery_ui/controller/bottom_nav_controller/bottom_nav_controller.dart';
 import 'package:food_delivery_ui/controller/product_view_controller/product_view_controller.dart';
+import 'package:food_delivery_ui/controller/profile_controller/profile_controller.dart';
 import 'package:food_delivery_ui/view/screens/splash_screen/splash_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -31,6 +32,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => ProductViewController(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => ProfileContrller(),
         )
       ],
       child: MaterialApp(

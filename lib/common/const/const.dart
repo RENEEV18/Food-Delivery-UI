@@ -54,3 +54,23 @@ List<String> images = [
   "assets/images/rqxv3ubecvh5xr3zgjjc.webp",
   "assets/images/0ug0nbfo_chicken-masala_625x300_28_May_20.webp",
 ];
+List<String> payment = [
+  "Card",
+  "Bank account",
+  "Paypal",
+];
+List<Color> colorContainer = [
+  Colors.orange,
+  const Color.fromRGBO(
+    146,
+    85,
+    253,
+    1.000,
+  ),
+  Colors.blue,
+];
+List<IconData> iconContainer = [
+  Icons.credit_card,
+  Icons.account_balance,
+  Icons.paypal,
+];
