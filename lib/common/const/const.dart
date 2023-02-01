@@ -31,4 +31,26 @@ class AppSizedBox {
   static const kHeight5 = SizedBox(
     height: 5,
   );
+  static const kHeight10 = SizedBox(
+    height: 10,
+  );
 }
+
+List<String> items = [
+  "Veggie\ntomato mix",
+  "Spicy fried\nsauce",
+  "Masala Chiken",
+  "Fried Rice"
+];
+List<String> price = [
+  "N1,900",
+  "N2,300",
+  "N3,100",
+  "N4,600",
+];
+List<String> images = [
+  "assets/images/summer-veggie-salad-8-1024x701.jpg",
+  "assets/images/images (1).jfif",
+  "assets/images/rqxv3ubecvh5xr3zgjjc.webp",
+  "assets/images/0ug0nbfo_chicken-masala_625x300_28_May_20.webp",
+];

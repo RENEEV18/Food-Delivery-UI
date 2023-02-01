@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery_ui/common/colors/colors.dart';
 import 'package:food_delivery_ui/common/const/const.dart';
+import 'package:food_delivery_ui/view/screens/product_view_screen/product_view.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -130,32 +131,72 @@ class HomeScreen extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
-                        return Stack(
-                          children: [
-                            SizedBox(
-                              height: 300,
-                              width: 220,
-                              child: Card(
-                                color: AppColors.kWhite,
-                                surfaceTintColor: AppColors.kWhite,
-                                elevation: 100,
-                                shadowColor: AppColors.kWhite,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(40),
+                        return InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return const ProductViewScreen();
+                                },
+                              ),
+                            );
+                          },
+                          child: Stack(
+                            children: [
+                              SizedBox(
+                                height: 300,
+                                width: 220,
+                                child: Card(
+                                  color: AppColors.kWhite,
+                                  surfaceTintColor: AppColors.kWhite,
+                                  elevation: 100,
+                                  shadowColor: AppColors.kWhite,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(40),
+                                  ),
                                 ),
                               ),
-                            ),
-                            const Positioned(
-                              left: 30,
-                              top: -10,
-                              child: CircleAvatar(
+                              CircleAvatar(
+                                backgroundImage: AssetImage(
+                                  images[index],
+                                ),
                                 radius: 80,
                               ),
-                            ),
-                            const SizedBox(
-                              height: 200,
-                            ),
-                          ],
+                              const SizedBox(
+                                height: 200,
+                              ),
+                              Positioned(
+                                top: 180,
+                                left: 60,
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      items[index],
+                                      style: const TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w600,
+                                        letterSpacing: -0.8,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                    AppSizedBox.kHeight5,
+                                    Text(
+                                      price[index],
+                                      style: const TextStyle(
+                                        color: Color.fromRGBO(
+                                          146,
+                                          85,
+                                          253,
+                                          1.000,
+                                        ),
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
                         );
                       },
                       separatorBuilder: (BuildContext context, int index) {

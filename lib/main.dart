@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:food_delivery_ui/view/screens/history_screen/history.dart';
+import 'package:food_delivery_ui/controller/bottom_nav_controller/bottom_nav_controller.dart';
+import 'package:food_delivery_ui/controller/product_view_controller/product_view_controller.dart';
 import 'package:food_delivery_ui/view/screens/splash_screen/splash_screen.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,17 +24,27 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        scaffoldBackgroundColor: const Color.fromRGBO(237, 237, 237, 1.000),
-        appBarTheme: const AppBarTheme(
-          color: Color.fromRGBO(237, 237, 237, 1.000),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => BottomNavController(),
         ),
-        useMaterial3: true,
-        fontFamily: "Montserrat",
+        ChangeNotifierProvider(
+          create: (context) => ProductViewController(),
+        )
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          scaffoldBackgroundColor: const Color.fromRGBO(237, 237, 237, 1.000),
+          appBarTheme: const AppBarTheme(
+            color: Color.fromRGBO(237, 237, 237, 1.000),
+          ),
+          useMaterial3: true,
+          fontFamily: "Montserrat",
+        ),
+        home: const SplashScreen(),
       ),
-      home: const HistoryScreen(),
     );
   }
 }
